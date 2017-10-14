@@ -326,6 +326,7 @@ Android destroys and recreates fragments as part of a configuration change (e.g.
 So, make a regular public Java class (or a public static nested class) that extends DialogNew and has your business logic, replacing the anonymous subclass of DialogNew that you are using presently.
 */
 
+/*
                     // DialogFragment to display quiz stats and start new quiz
                     DialogFragment quizResults = new DialogFragment() {
                                 // create an AlertDialog and return it
@@ -349,6 +350,13 @@ So, make a regular public Java class (or a public static nested class) that exte
                     // use FragmentManager to display the DialogFragment
                     quizResults.setCancelable(false);
                     quizResults.show(getFragmentManager(), "quiz results");
+*/
+
+                DialogFragment newFragment = MyAlertDialogFragment.newInstance("quiz results", totalGuesses);//The first String "quiz results" is just for testing
+                    newFragment.setCancelable(false);
+                    newFragment.show(getFragmentManager(), "quiz results");
+
+
 
 
                 } else { // answer is correct but quiz is not over - load the next flag after a 2-second delay
